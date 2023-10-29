@@ -12,9 +12,8 @@ public class TaskManagerApplication {
 
     public static void main(String[] args) {
 
-        ConfigurableApplicationContext context = SpringApplication.run(TaskManagerApplication.class, args);
-        TaskRepository taskRepository = context.getBean(TaskRepository.class);
-        taskRepository.save(new Task("Task1","Zrób to sam"));
+        SpringApplication.run(TaskManagerApplication.class, args);
+
 
     }
 

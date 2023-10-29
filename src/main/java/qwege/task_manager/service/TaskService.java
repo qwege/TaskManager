@@ -5,15 +5,12 @@ import qwege.task_manager.entity.Task;
 import java.util.List;
 
 public interface TaskService {
-    // save operation
-    Task saveDepartment(Task department);
 
-    // read operation
-    List<Task> fetchDepartmentList();
+    Task saveTask(Task department);
 
-    // update operation
-    Task updateDepartment(Task department, Long departmentId);
+    List<Task> fetchTaskList();
 
-    // delete operation
-    void deleteDepartmentById(Long departmentId);
+    Task updateTask(Task department, Long departmentId);
+
+    void deleteTaskById(Long departmentId);
 }

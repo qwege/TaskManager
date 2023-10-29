@@ -13,26 +13,26 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
     @PostMapping("/task")
-    public Task saveDepartment(@RequestBody Task task) {
-        return taskService.saveDepartment(task);
+    public Task saveTask(@RequestBody Task task) {
+        return taskService.saveTask(task);
     }
 
     // Read operation
     @GetMapping("/task")
-    public List<Task> fetchDepartmentList() {
-        return taskService.fetchDepartmentList();
+    public List<Task> fetchTaskList() {
+        return taskService.fetchTaskList();
     }
 
     // Update operation
     @PutMapping("/task/{id}")
-    public Task updateDepartment(@RequestBody Task task, @PathVariable("id") Long departmentId) {
-        return taskService.updateDepartment(task, departmentId);
+    public Task updateTask(@RequestBody Task task, @PathVariable("id") Long departmentId) {
+        return taskService.updateTask(task, departmentId);
     }
 
     // Delete operation
     @DeleteMapping("/task/{id}")
-    public String deleteDepartmentById(@PathVariable("id") Long departmentId) {
-        taskService.deleteDepartmentById(departmentId);
+    public String deleteTaskById(@PathVariable("id") Long departmentId) {
+        taskService.deleteTaskById(departmentId);
         return "Deleted Successfully";
     }
 }

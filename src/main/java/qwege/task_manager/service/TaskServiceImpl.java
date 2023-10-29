@@ -14,17 +14,17 @@ public class TaskServiceImpl implements TaskService{
     @Autowired
     private TaskRepository taskRepository;
     @Override
-    public Task saveDepartment(Task task) {
+    public Task saveTask(Task task) {
        return taskRepository.save(task);
     }
 
     @Override
-    public List<Task> fetchDepartmentList() {
+    public List<Task> fetchTaskList() {
         return (List<Task>) taskRepository.findAll();
     }
 
     @Override
-    public Task updateDepartment(Task task, Long tasktID) {
+    public Task updateTask(Task task, Long tasktID) {
         Task taskDB= taskRepository.findById(tasktID).get();
         if (Objects.nonNull(task.getName()) && !"".equalsIgnoreCase(task.getName())) {
             taskDB.setName(task.getName());
@@ -41,7 +41,7 @@ public class TaskServiceImpl implements TaskService{
 
 
     @Override
-    public void deleteDepartmentById(Long taskID) {
+    public void deleteTaskById(Long taskID) {
         taskRepository.deleteById(taskID);
     }
 }
