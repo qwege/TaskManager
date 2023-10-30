@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 public class TaskController {
+
     @Autowired
     private TaskService taskService;
     @PostMapping("/task")
@@ -17,22 +18,24 @@ public class TaskController {
         return taskService.saveTask(task);
     }
 
-    // Read operation
     @GetMapping("/task")
     public List<Task> fetchTaskList() {
         return taskService.fetchTaskList();
     }
-
-    // Update operation
-    @PutMapping("/task/{id}")
-    public Task updateTask(@RequestBody Task task, @PathVariable("id") Long departmentId) {
-        return taskService.updateTask(task, departmentId);
+    @GetMapping("/task/{id}")
+    public Task getTask(@PathVariable("id") Long id ) {
+        return taskService.getTask(id);
     }
 
-    // Delete operation
+    @PutMapping("/task/{id}")
+    public Task updateTask(@RequestBody Task task, @PathVariable("id") Long taskId) {
+        return taskService.updateTask(task, taskId);
+    }
+
     @DeleteMapping("/task/{id}")
-    public String deleteTaskById(@PathVariable("id") Long departmentId) {
-        taskService.deleteTaskById(departmentId);
+    public String deleteTaskById(@PathVariable("id") Long taskId) {
+        taskService.deleteTaskById(taskId);
         return "Deleted Successfully";
     }
+
 }
